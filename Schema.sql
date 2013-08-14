@@ -1,0 +1,20 @@
+--Create FileTable
+CREATE TABLE t_FileTable
+(
+ID INTEGER PRIMARY KEY AUTOINCREMENT
+,fileName NVARCHAR(255)
+,relativePathName NVARCHAR(255)
+,fileExtent NVARCHAR(100)
+,rootPathID INTEGER
+,UNIQUE(fileName, pathName, fileExtent) ON CONFLICT REPLACE
+,FOREIGN KEY(rootPathID) REFERENCES artist(artistid)
+)
+
+
+CREATE TABLE t_Project
+(
+ID INTERGER PRIMARY KEY AUTOINCREMENT
+,ProjectName NVARCHAR(255)
+,Rootpath NVARCHAR(255)
+UNIQUE(ProjectName, Rootpath) ON CONFLICT REPLACE
+)
